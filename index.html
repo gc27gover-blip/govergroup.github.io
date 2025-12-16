@@ -8,21 +8,28 @@
 <style>
 body {
     margin: 0;
-    background: #000;
+    background-color: #000;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    padding: 20px;
+    align-items: center;
+    min-height: 100vh;
 }
 .container {
     max-width: 420px;
     width: 100%;
     text-align: center;
+    padding: 16px;
 }
 .card-img {
     width: 100%;
     border-radius: 14px;
-    margin-bottom: 14px;
+    cursor: pointer;
+}
+.hint {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #aaa;
 }
 </style>
 </head>
@@ -30,10 +37,25 @@ body {
 <body>
 <div class="container">
 
-    <img src="card.jpg" alt="Visiting Card Front" class="card-img">
+    <img
+        id="card"
+        src="card.jpg"
+        alt="Gover Visiting Card"
+        class="card-img"
+        onclick="toggleCard()"
+    >
 
-    <img src="card2.jpg" alt="Visiting Card Back" class="card-img">
+    <div class="hint">Tap card to view other side</div>
 
 </div>
+
+<script>
+let front = true;
+function toggleCard() {
+    const img = document.getElementById("card");
+    img.src = front ? "card2.jpg" : "card.jpg";
+    front = !front;
+}
+</script>
 </body>
 </html>
